@@ -76,11 +76,17 @@ than a CNN on 2D images. On MNIST-1D the differences are large enough to see.
 ## Reproduce
 
 ```bash
-pip install mnist1d torch matplotlib scipy
-python run_experiments.py      # 8 models x 2 datasets x 5 seeds -> results/runs_*.jsonl (~1h on CPU)
-python make_figures.py         # figures/ + results/results_table.md
-python run_mnist2d.py 60000    # bonus: same test on real 28x28 MNIST
+pip install -r requirements.txt
+python run_experiments.py                       # 8 models x 2 datasets x 5 seeds -> results/runs_*.jsonl (~1h on CPU)
+python make_figures.py                          # figures/ + results/results_table.md
+python run_reordered_cnn.py                     # CNN on data un-scrambled by the learned graph (95.7%)
+python run_mnist2d.py 60000 path/to/MNIST       # bonus: real MNIST (raw idx files), ~1.5h on CPU
 ```
+
+The dataset is generated deterministically by the `mnist1d` package and every run is seeded. With the pinned
+versions on CPU, re-running gives the same accuracies to the decimal. Other hardware or library versions may
+differ slightly per seed, but the means should match within the reported std. Training times will differ.
+`tune.py` is the validation-split hyperparameter search used to pick learning rates and GNN size.
 
 Code: `src/graphs.py` (graph construction), `src/models.py` (baselines from the MNIST-1D repo + GNN),
 `src/train.py` (one shared training loop: Adam + cosine decay, 8000 steps, batch 100).

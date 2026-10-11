@@ -1,0 +1,5 @@
+mnist1d==0.0.2.post1
+torch==2.14.0
+numpy==2.4.1
+scipy==1.17.1
+matplotlib==3.11.2

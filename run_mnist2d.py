@@ -1,6 +1,7 @@
 """Bonus: the same pixel-shuffle test on real MNIST (28x28 = 784 nodes).
 
-Usage: python run_mnist2d.py [n_train]
+Usage: python run_mnist2d.py [n_train] [path/to/mnist_idx_folder]
+(or set MNIST_DIR; the folder must contain the raw train-/t10k- *.idx*-ubyte files)
 """
 import sys, os, json, time
 sys.path.insert(0, "src")
@@ -10,7 +11,7 @@ import torch.nn as nn
 from models import MLP, GNN, n_params
 from train import train, set_seed
 
-MNIST_DIR = r"C:\PERSONAL\PROJECTS\HANDWRITING PROJECT\Dataset\MNIST"
+MNIST_DIR = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("MNIST_DIR", "data/MNIST")
 OUT = "results/runs_mnist2d.jsonl"
 
 
