@@ -1,0 +1,8 @@
+{"dataset": "regular", "model": "MLP", "acc": 98.32, "secs": 15.57308053970337, "params": 269322, "n_train": 60000}
+{"dataset": "regular", "model": "CNN", "acc": 99.11999999999999, "secs": 168.9657027721405, "params": 50186, "n_train": 60000}
+{"dataset": "regular", "model": "GNN (grid)", "acc": 96.07, "secs": 1428.85417842865, "params": 36138, "n_train": 60000}
+{"dataset": "regular", "model": "GNN (learned)", "acc": 95.24000000000001, "secs": 1517.883534669876, "params": 36138, "n_train": 60000}
+{"dataset": "shuffled", "model": "MLP", "acc": 98.33, "secs": 21.539549112319946, "params": 269322, "n_train": 60000}
+{"dataset": "shuffled", "model": "CNN", "acc": 97.15, "secs": 168.32633519172668, "params": 50186, "n_train": 60000}
+{"dataset": "shuffled", "model": "GNN (grid)", "acc": 93.37, "secs": 1447.7161889076233, "params": 36138, "n_train": 60000}
+{"dataset": "shuffled", "model": "GNN (learned)", "acc": 95.43, "secs": 1530.2009317874908, "params": 36138, "n_train": 60000}
